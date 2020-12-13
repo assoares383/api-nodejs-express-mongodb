@@ -5,10 +5,6 @@ server.use(express.json());
 
 const courses = ["NodeJS", "JavaScript", "React Native"];
 
-server.use((req, res) => {
-  console.log("Requisição Chamada");
-});
-
 server.get("/", (req, res) => {
   return res.json(courses);
 });
