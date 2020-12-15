@@ -1,9 +1,20 @@
 import express from "express";
+import dotenv from "dotenv";
+import mongoose from "mongoose";
 import routes from "./routes";
 
 class App {
   constructor() {
     this.server = express();
+    dotenv.config();
+
+    mongoose.connect(
+      `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.gvls4.mongodb.net/devhouse?retryWrites=true&w=majority`,
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      }
+    );
 
     this.middlewares();
     this.routes();
