@@ -19,8 +19,8 @@ const HouseSchema = new Schema(
   }
 );
 
-HouseSchema.virtual("thumbnail_url").get(function () {
-  return `http://localhost:3333/files/${this.thumbnail}`;
-});
+HouseSchema.virtual("thumbnail_url").get(
+  () => `http://localhost:3333/files/${this.thumbnail}`
+);
 
 export default model("House", HouseSchema);
