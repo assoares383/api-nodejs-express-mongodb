@@ -1,11 +1,11 @@
-import Sequelize from "sequelize";
+import Sequelize, { Model } from "sequelize";
 
 class Task extends Model {
   static init(sequelize) {
     super.init(
       {
         task: Sequelize.STRING,
-        check: Sequelize.STRING,
+        check: Sequelize.BOOLEAN,
       },
       {
         sequelize,
@@ -20,4 +20,4 @@ class Task extends Model {
   }
 }
 
-export default new Task();
+export default Task;
